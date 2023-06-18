@@ -1,7 +1,8 @@
+require('dotenv').config();
 // Importaciones
 const express = require('express');
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Middlewares
 app.use(express.json());
@@ -10,7 +11,8 @@ app.use(express.json());
 // Rutas
 app.get('/', (req, res) => {
     return res.json({
-        msg: 'Bienvenidos al API'
+        msg: 'Bienvenidos al API',
+        author: process.env.AUTHOR,
     })
 });
 
